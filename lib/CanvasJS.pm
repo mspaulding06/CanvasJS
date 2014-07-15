@@ -19,7 +19,10 @@ sub new {
 
 sub add_datapoint {
 	my ($self, $label, $point) = @_;
-	push @{$self->{data_points}}, [ $label, $point ];
+	push @{$self->{data_points}}, [
+				       defined $label ? $label : '',
+				       defined $point ? $point : 0,
+				       ];
 }
 
 sub js {
